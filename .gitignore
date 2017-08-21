@@ -1,2 +1,24 @@
+# node.js
+#
 node_modules
+npm-debug.log
+yarn-error.log
+
+#
 haste-map-*
+
+# OSX
+#
+.DS_Store
+
+# Xcode
+#
+build/
+
+# Android/IntelliJ
+#
+ios/build/**
+.idea
+.gradle
+local.properties
+*.iml

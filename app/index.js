@@ -5,26 +5,15 @@
 
 import React from 'react';
 import {
-  StyleSheet,
-  Text,
-  View
+    StyleSheet,
+    Text,
+    View,
+    ListView,
 } from 'react-native';
+import { Tabs } from './config/router';
 
 export default class App extends React.Component {
     render() {
-        return (
-            <View>
-                <Text>Instagram Client to get the local insta users photo</Text>
-            </View>
-        );
+        return <Tabs />;
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#fff',
-    },
-});
