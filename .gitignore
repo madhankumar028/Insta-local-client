@@ -21,6 +21,8 @@ DerivedData
 *.xcuserstate
 project.xcworkspace
 
+ios
+
 # Gradle
 /build/
 /RNTester/android/app/build/
@@ -37,11 +39,11 @@ buck-out
 /ReactAndroid/src/main/gen
 
 # Android
+/android/
 .idea
 .gradle
 local.properties
 *.iml
-/android/
 
 # Node
 node_modules

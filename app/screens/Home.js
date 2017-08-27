@@ -34,7 +34,7 @@ export default class App extends React.Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (!prevState.position && this.state.position) {
-            this.fetchUser();
+            this.fetchUserAsync();
         }
     }
 
@@ -53,6 +53,23 @@ export default class App extends React.Component {
         //         });
         //     })
         //     .done();
+    }
+
+    async fetchUserAsync() {
+
+        var client_id = 'b7641fc061fbc7eba0ae',
+            client_secret = '582f452b977885775b36fd81d8bfe51a5d48e59d',
+            apikey = `client_id="${client_id}&client_secret="${client_secret}"`,
+            baseUrl = 'https://api.github.com/users',
+            url = `${baseUrl}/madhankumar028?${apikey}`;
+
+        try {
+            let response = await fetch(url);
+            var data = await response.json();
+            console.log(data);
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     retryAlert(error = false) {
