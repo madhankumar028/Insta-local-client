@@ -33,8 +33,6 @@ export default class About extends React.Component {
             let response = await fetch(url);
             let data = await response.json();
 
-            console.log(data);
-
             this.setState.user = data;
         } catch (e) {
             console.log(e);
