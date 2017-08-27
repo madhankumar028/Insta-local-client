@@ -10,14 +10,14 @@ export const Tabs = TabNavigator({
         screen: About,
         navigationOptions: {
             tabBarLabel: 'About',
-            tabBarIcon: ({ tintcolor }) => <Icon name="account-circle" size={35} color="{tintcolor}" />
+            tabBarIcon: ({ tintColor }) => <Icon name="account-circle" size={35} color={tintColor} />
         }
     },
     Home: {
         screen: Home,
         navigationOptions: {
             tabBarLabel: 'Home',
-            tabBarIcon: ({ tintcolor }) => <Icon name="list" size={35} color="{tintcolor}" />
+            tabBarIcon: ({ tintColor }) => <Icon name="list" size={35} color={tintColor} />
         }
     }
 });
