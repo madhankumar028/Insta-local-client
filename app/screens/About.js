@@ -8,38 +8,44 @@ import {
 } from 'react-native';
 import { List, ListItem } from 'react-native-elements';
 
+import { appConstant } from '../config/constants'
+
+var apikey = `client_id=${appConstant.client_id}&client_secret=${appConstant.client_secret}`,
+    url = `${appConstant.baseUrl}/madhankumar028?/${apikey}`;
+
 export default class About extends React.Component {
 
     constructor(props) {
         super(props);
+
+        const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 != r2 });
+
         this.state = {
-            user: null
+            user: null,
+            dataSource: ds.cloneWithRows(['row1', 'row2']),
         };
     }
 
-    componentDidMount() {
-        this.fetchAsyncUser();
+    componentWillMount() {
+        this.fetchUser(url);
     }
 
-    async fetchAsyncUser() {
+    fetchUser(url) {
 
-        var client_id = 'b7641fc061fbc7eba0ae',
-            client_secret = '582f452b977885775b36fd81d8bfe51a5d48e59d',
-            apikey = `client_id="${client_id}&client_secret="${client_secret}"`,
-            baseUrl = 'https://api.github.com/users',
-            url = `${baseUrl}/madhankumar028?${apikey}`;
-
-        try {
-            let response = await fetch(url);
-            let data = await response.json();
-
-            this.setState.user = data;
-        } catch (e) {
-            console.log(e);
-        }
+        fetch(url)
+            .then(response => response.json())
+            .then(data => data)
+            .then(user => {
+                this.setState({
+                    dataSource: this.state.dataSource.cloneWithRows(user)
+                });
+                this.setState.user = user;
+                console.log(user)
+            });
     }
 
     renderLoadingView() {
+        console.log(this.state.user);
         return (
             <View style={styles.container}>
                 <Text>Loading ...</Text>

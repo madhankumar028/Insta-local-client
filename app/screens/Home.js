@@ -33,9 +33,9 @@ export default class App extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (!prevState.position && this.state.position) {
-            this.fetchUserAsync();
-        }
+        // if (!prevState.position && this.state.position) {
+        //     this.fetchUserAsync();
+        // }
     }
 
     fetchUser() {
@@ -43,19 +43,19 @@ export default class App extends React.Component {
         const lng = this.state.position.coords.longitude;
         const distance = Math.round(this.state.distance * 1000);
 
-        // fetch(`${baseUrl}search?lat=${lat}&lng=${lng}&distance=${distance}&client_id=${CLIENT_ID}`)
-        //     .then((response) => response.json())
-        //     .then((responseData) => {
-        //         console.log(responseData);
-        //         this.setState({
-        //             dataSource: this.state.dataSource.cloneWithRows(responseData.data),
-        //             loaded: true
-        //         });
-        //     })
-        //     .done();
+        fetch(`${baseUrl}search?lat=${lat}&lng=${lng}&distance=${distance}&client_id=${CLIENT_ID}`)
+            .then((response) => response.json())
+            .then((responseData) => {
+                console.log(responseData);
+                this.setState({
+                    dataSource: this.state.dataSource.cloneWithRows(responseData.data),
+                    loaded: true
+                });
+            })
+            .done();
     }
 
-    async fetchUserAsync() {
+    fetchUserAsync() {
 
         var client_id = 'b7641fc061fbc7eba0ae',
             client_secret = '582f452b977885775b36fd81d8bfe51a5d48e59d',
@@ -63,13 +63,13 @@ export default class App extends React.Component {
             baseUrl = 'https://api.github.com/users',
             url = `${baseUrl}/madhankumar028?${apikey}`;
 
-        try {
-            let response = await fetch(url);
-            var data = await response.json();
-            console.log(data);
-        } catch (e) {
-            console.log(e);
-        }
+        // try {
+        //     let response = await fetch(url);
+        //     var data = await response.json();
+        //     console.log(data);
+        // } catch (e) {
+        //     console.log(e);
+        // }
     }
 
     retryAlert(error = false) {

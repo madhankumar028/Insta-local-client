@@ -1,4 +1,5 @@
 export const appConstant = {
-    clientId: '	74a29683d9694711abed5e9b7d629090',
-    baseUrl: 'https://api.instagram.com/v1/media/',
+    'client_id': 'b7641fc061fbc7eba0ae',
+    'client_secret': '582f452b977885775b36fd81d8bfe51a5d48e59d',
+    'baseUrl': 'https://api.github.com/users'
 }
